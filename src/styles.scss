@@ -1,1 +1,178 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@fontsource/roboto"; // Defaults to weight 400.
+
+:root {
+    --primary-100: #e3f2fd;
+    --primary-200: #bbdefb;
+    --primary-400: #1e88e5;
+    --primary-500: #1565c0;
+
+    --neutral-100: #fafafa;
+    --neutral-200: #e4e4e4;
+    --neutral-400: #999;
+    --neutral-500: #777;
+    --neutral-600: #555;
+    --neutral-700: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+html,
+body {
+    font-size: 16px;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: var(--neutral-100)
+}
+
+.h1,
+.h2 {
+    font-weight: 700;
+    color: var(--neutral-700);
+}
+
+.h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.h2 {
+    font-size: 1.5rem;
+    margin: .5rem 0;
+}
+
+.container {
+    padding: 1rem;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    .row__column {
+        flex-basis: 100%;
+    }
+}
+
+.align-item-center {
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn {
+    padding: .5rem 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background-color: var(--primary-500);
+    color: white;
+}
+
+.btn--icon {
+    color: var(--primary-500);
+    background-color: white;
+
+    i> {
+        font-size: 1rem;
+    }
+
+    &:hover {
+        background-color: var(--primary-100);
+    }
+}
+
+.well {
+    background-color: #eeeeee;
+    padding: .25rem;
+    border: 1px solid #aaaaaa
+}
+
+.card {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .card__header,
+    .card__body,
+    .card__footer {
+        padding: 1rem;
+    }
+
+    .card__header {
+        font-size: 1rem;
+    }
+
+    .card__body {
+        flex-grow: 1;
+    }
+
+    .card__footer {
+        text-align: center;
+    }
+
+    .card__name {
+        color: var(--neutral-600);
+    }
+
+    .card__date {
+        color: var(--neutral-400);
+    }
+
+}
+
+.form-group {
+    padding: .5rem;
+}
+
+.form-group--horizontal {
+    display: flex;
+    min-width: 200px;
+    align-items: center;
+
+    label {
+        min-width: 75px;
+    }
+
+    select {
+        flex-grow: 1;
+    }
+}
+
+
+.input,
+.select {
+    margin: 1rem 0;
+    padding: .5rem;
+    background-color: var(--neutral-200);
+    border: none;
+}
+
+/*----------------- Utility classes -----------------*/
+.text-center {
+    text-align: center;
+}
+
+.h-100vh {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.mx-auto {
+    margin: 0 auto;
+    ;
+}

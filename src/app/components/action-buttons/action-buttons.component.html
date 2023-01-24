@@ -1,0 +1,9 @@
+<button (click)="onClickHandler($event, 'download')" *ngIf="downloadEnabled" class="btn btn--icon">
+    <fa-icon [icon]="downloadIcon"></fa-icon>
+</button>
+<button (click)="onClickHandler($event, 'save')" *ngIf="saveEnabled" class="btn btn--icon">
+    <fa-icon [icon]="saveIcon"></fa-icon>
+</button>
+<button (click)="onClickHandler($event, 'delete')" *ngIf="deleteEnabled" class="btn btn--icon">
+    <fa-icon [icon]="deleteIcon"></fa-icon>
+</button>

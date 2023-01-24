@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="h1 text-center">Search Giphy</h1>
+    <div class="row align-item-center">
+        <input type="text" class="input" [(ngModel)]="search" (keydown.enter)="onSearch($event)" placeholder="Cats" />
+        <button type="button" (click)="onSearch($event)" class="btn btn--primary">
+            Search
+        </button>
+    </div>
+</div>
+<div class="gif-list well">
+    <div class="gif" *ngFor="let gif of gifs">
+        <img [src]="gif.images.downsized.url" [alt]="gif.title" class="gif__img">
+        <app-action-buttons (onSave)="onSave(gif)"></app-action-buttons>
+    </div>
+</div>

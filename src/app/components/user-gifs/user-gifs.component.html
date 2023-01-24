@@ -1,0 +1,38 @@
+<div class="container h-100vh">
+    <h2 class="h2 text-center">Your Gif collection</h2>
+    <div class="row">
+        <div class="form-group form-group--horizontal">
+            <label for="filter">Filter</label>
+            <input type="text" name="filter" [(ngModel)]="search" class="input" />
+        </div>
+        <div class="form-group form-group--horizontal">
+            <label for="orderby">Order by</label>
+            <select name="orderby" [(ngModel)]="orderBy" class="select" >
+                <option value="name">Name</option>
+                <option value="added">Date added</option>
+                <option value="custom">Custom order</option>
+            </select>
+        </div>
+        <div class="form-group form-group--horizontal" *ngIf="orderBy !== 'custom'">
+            <label for="orderby">Sort order</label>
+            <select name="orderby" [(ngModel)]="reverseOrder" class="select">
+                <option [ngValue]="false">Ascending</option>
+                <option [ngValue]="true">Descending</option>
+            </select>
+        </div>
+    </div>
+    <div class="gif-list" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListDisabled]="search.length > 0">
+        <div *ngFor="let gif of getGifs()" class="card" cdkDrag>
+            <div class="card__header">
+                <div class="card__name">{{gif.name}}</div>
+                <div class="card__date">{{gif.added | date : 'medium'}}</div>
+            </div>
+            <div class="card__body">
+                <img [src]="gif.url" [alt]="gif.url" />
+            </div>
+            <div class="card__footer">
+                <app-action-buttons (onDownload)="onDownload(gif)" (onDelete)="onDelete(gif)"></app-action-buttons>
+            </div>
+        </div>
+    </div>
+</div>

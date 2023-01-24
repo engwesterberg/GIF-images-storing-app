@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+}
+app-user-gifs {
+    flex-grow: 1;
+}
+app-gif-explorer {
+    width: 400px;
+    min-width: 400px;
+}
